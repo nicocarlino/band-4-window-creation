@@ -31,7 +31,7 @@ This library solves this by injecting shellcode into `explorer.exe`, which alrea
 has the necessary permissions, and creates the window from within it — no certificate,
 no protected path, no manifest required.
 
-## 🚀 Usage
+## Usage
 ```cpp
 #include "overlay/overlay.hpp"
 
@@ -48,8 +48,8 @@ int main(){
 
 ## ⚙️ How It Works
 
-1. 🔍 Gets the `explorer.exe` PID via `GetShellWindow`
-2. 💾 Allocates memory in `explorer.exe` with `VirtualAllocEx`
-3. ✍️ Writes the shellcode payload and a configuration struct into the allocated memory
-4. 🧵 Spawns a remote thread in `explorer.exe` via `CreateRemoteThread`
-5. 🪟 The thread calls `CreateWindowInBand` from within `explorer.exe`'s context, bypassing all signature and permission requirements
+1. Gets the `explorer.exe` PID via `GetShellWindow`
+2. Allocates memory in `explorer.exe` with `VirtualAllocEx`
+3. Writes the shellcode payload and a configuration struct into the allocated memory
+4. Spawns a remote thread in `explorer.exe` via `CreateRemoteThread`
+5. The thread calls `CreateWindowInBand` from within `explorer.exe`'s context, bypassing all signature and permission requirements
